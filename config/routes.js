@@ -43,6 +43,14 @@ module.exports.routes = {
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
+  'POST   /user/signup':                          { action: 'user/signup' },
+  'GET    /user/many_to_many':                    { action: 'user/many_to_many' },
+  'GET    /users':                                { action: 'user/all' },
+  'GET    /user/:id':                             { action: 'user/one' },
+  'POST   /user/:id/pet':                             { action: 'user/add' },
+
+  'POST   /pet':                                  { action: 'pet/create' },
+  'GET    /pets':                                 { action: 'pet/all' },
 
 
 
