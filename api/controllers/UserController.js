@@ -34,18 +34,21 @@ module.exports = {
     }
   },
 
-  addPetToUser: async function(req, res) {
+  addPet: async function(req, res) {
     try {
-      await User.addToCollection(req.param('user_id'), 'pets', req.param('pet_id'));
+      let userId = req.param('user_id');
+      let petId = req.param('pet_id');
+      await User.addToCollection(userId, 'pets', petId);
       return res.ok();
     } catch(err) {
       return res.negotiate(err);
     }
   },
 
-  populatePetsAssociatedWithUser: async function(req, res) {
+  getPets: async function(req, res) {
     try {
       let user = await User.find({id: req.param('id')}).populate('pets');
+      // TODO extract pets and return to clients
       return res.json(user);
     } catch (err) {
       return res.negotiate(err);

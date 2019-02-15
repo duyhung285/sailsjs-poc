@@ -1,4 +1,3 @@
-// A pet may have many owners
 module.exports = {
   attributes: {
     type: {
@@ -8,7 +7,7 @@ module.exports = {
       type: 'string'
     },
 
-    // Add a reference to User
+    // A pet may have many owners
     owners: {
       collection: 'user',
       via: 'pets'

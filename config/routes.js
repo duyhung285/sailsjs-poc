@@ -46,12 +46,13 @@ module.exports.routes = {
   'POST /user': 'UserController.signup',
   'GET  /users': 'UserController.getAll',
   'GET  /user/:id': 'UserController.findById',
-  'GET  /user/add-pet': 'UserController.addPetToUser',
-  'GET  /user/:id/pets': 'UserController.populatePetsAssociatedWithUser',
+
+  // TODO https://stackoverflow.com/questions/40231252/sailsjs-one-way-association-implementation
+  'PUT  /user/add-pet': 'UserController.addPet',
+  'GET  /user/:id/pets': 'UserController.getPets',
 
   'POST /pet': 'PetController.create',
   'GET /pets': 'PetController.getAll',
-
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
