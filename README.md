@@ -13,3 +13,8 @@ sudo chmod 764 data
 sudo mongod
 mongo
 use foo
+
+- generate a sign-up action (https://sailsjs.com/documentation/concepts/actions-and-controllers/generating-actions-and-controllers)
+sails generate action user/signup --no-actions2
+
+- negotiate errors (https://sailsjs.com/documentation/concepts/models-and-orm/errors, https://javascript.info/async-await)
