@@ -43,18 +43,14 @@ module.exports.routes = {
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
-  'POST   /user/signup':                          { action: 'user/signup' },
-  'GET    /users':                                { action: 'user/all' },
-  'GET    /user/:id':                             { action: 'user/one' },
-  'POST   /user/:id/pet':                         { action: 'user/add' },
-  'PUT    /user/pet':                             { action: 'user/pet' },
+  'POST /user': 'UserController.signup',
+  'GET  /users': 'UserController.getAll',
+  'GET  /user/:id': 'UserController.findById',
+  'GET  /user/add-pet': 'UserController.addPetToUser',
+  'GET  /user/:id/pets': 'UserController.populatePetsAssociatedWithUser',
 
-  'POST   /pet':                                  { action: 'pet/create' },
-  'GET    /pets':                                 { action: 'pet/all' },
-
-  'POST   /payment/':                             { action: 'payment/create' },
-  'GET    /payments':                             { action: 'payment/all' },
-
+  'POST /pet': 'PetController.create',
+  'GET /pets': 'PetController.getAll',
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
