@@ -17,6 +17,14 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': ['isAuthorized'], // Everything restricted here
+  'UserController': {
+    'signup': true, // We don't need authorization here, allowing public access
+    'login': true // We don't need authorization here, allowing public access
+  },
+  'PetController': {
+    'create': true,
+    'getAll': true
+  }
 
 };

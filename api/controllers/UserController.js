@@ -61,7 +61,9 @@ module.exports = {
 
   addPet: async function(req, res) {
     try {
-      let userId = req.param('user_id');
+      let userId = req.user.data.id;
+      sails.log.debug('userId ' + userId);
+
       let petId = req.param('pet_id');
       await User.addToCollection(userId, 'pets', petId);
       return res.ok();
@@ -72,7 +74,11 @@ module.exports = {
 
   getPets: async function(req, res) {
     try {
-      let user = await User.find({id: req.param('id')}).populate('pets');
+
+      let userId = req.user.data.id;
+      sails.log.debug('userId ' + userId);
+
+      let user = await User.find({id: userId}).populate('pets');
       // TODO extract pets and return to clients
       return res.json(user);
     } catch (err) {
