@@ -23,7 +23,6 @@ module.exports = function(req, res, next) {
       return res.status(401).json({err: 'Invalid token'});
     }
     req.user = decoded;
-    console.log(decoded);
     next();
   });
 };
