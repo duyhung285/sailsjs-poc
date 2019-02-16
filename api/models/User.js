@@ -38,14 +38,6 @@ module.exports = {
       via: 'userId'
     },
 
-    // This tells Sails.js anytime we call the toJSON function to return
-    // the user object, take out the password field.  We don't want that
-    // flying around the Internet!
-    toJSON: function() {
-      let obj = this.toObject();
-      delete obj.password;
-      return obj;
-    }
   },
 
 };

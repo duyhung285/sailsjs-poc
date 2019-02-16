@@ -14,6 +14,31 @@ module.exports = {
     }
   },
 
+  login: async function(req, res) {
+    try {
+
+      let userRecord = await User.findOne({
+        emailAddress: req.param('emailAddress')
+      });
+
+      if (!userRecord) res.status(404).json({error: 'User not found'});
+
+      sails.log.debug(userRecord.password);
+
+      await sails.helpers.passwords.checkPassword(req.param('password'), userRecord.password)
+        .intercept('incorrect', () => {
+          return res.status(401).json({error: 'Email and password combination do not match!'})
+        });
+
+      return res.json({
+        user: userRecord, token: jwToken.sign(userRecord)
+      });
+
+    } catch (error) {
+      return res.negotiate(error);
+    }
+  },
+
   getAll: async function(req, res) {
     try {
       let user = await User.find({});
